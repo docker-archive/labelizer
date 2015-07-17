@@ -1,13 +1,9 @@
 FROM gliderlabs/alpine
 MAINTAINER support@tutum.co
 
-ADD entrypoint.sh /
+ADD run.sh /
 RUN apk --update add nodejs && \
  	npm install -g yaml2json && \
-	chmod +x /entrypoint.sh
+	chmod +x /run.sh
 
-ENTRYPOINT ["/entrypoint.sh"]
-
-LABEL co.tutum.yml=""
-
-LABEL co.tutum.yml=""
+CMD /run.sh
